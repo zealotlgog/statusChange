@@ -16,8 +16,10 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mingyu.domain.Element;
+import com.mingyu.domain.Filename;
 import com.mingyu.service.ElementService;
 import com.mingyu.service.FileService;
+import com.mingyu.service.FilenameService;
 
 @Controller
 public class HomeController {
@@ -26,24 +28,35 @@ public class HomeController {
 	private FileService fileService;
 	@Autowired
 	private ElementService elementService;
+	@Autowired
+	private FilenameService filenameService;
 
-	// This function is used to open an excel file and the return a jason array
-	// take an file path as a input
-	@RequestMapping(value = "/open", method = RequestMethod.POST)
-	public ModelAndView showFile(String input) {
-
-		return null;
-
-	}
-	
+	// This function is used to get a list of existing filename list
+	// Input: a http request
+	// output: a String[] json array
+	@RequestMapping(value = "/filelist", method = RequestMethod.POST)
 	@ResponseBody
+	public List<Filename> getFilenameList(String input) {
+
+		return filenameService.getFilename();
+	}
+
+	// This function is used to open a list
+	// take an filename as a input
 	@RequestMapping(value = "/open", method = RequestMethod.POST)
-	public String[] listFileNames(String input) {
+	public List<Element> showFile(String input) {
+
+		return elementService.getElementbyFilename(input);
+
+	}
+
+	@ResponseBody
+	@RequestMapping(value = "/save", method = RequestMethod.POST)
+	public ModelAndView listFileNames(@RequestBody List<Element> element) {
 
 		return null;
 
 	}
-	
 
 	// This function is used to open an excel file and the return a json array
 	// take an file path as a input
@@ -54,8 +67,7 @@ public class HomeController {
 		List<Element> answer = new ArrayList<Element>();
 
 		if (!file.isEmpty()) {
-			String path = "./"
-					+ file.getOriginalFilename();
+			String path = "./" + file.getOriginalFilename();
 			File localFile = new File(path);
 			try {
 				file.transferTo(localFile);

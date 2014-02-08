@@ -42,4 +42,12 @@ public class ElementServiceImpl implements ElementService {
 		}
 		return answer;
 	}
+
+	@Override
+	public void addElementList(List<Element> elementList) {
+		for (int i = 1; i <= elementList.size(); i++) {
+			elementDao.saveElement(elementList.get(i));
+		}
+
+	}
 }
