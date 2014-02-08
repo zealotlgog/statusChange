@@ -13,14 +13,28 @@ public class Element {
 	@Column(name = "id")
 	private int id;
 
-	@Column(name = "type")
-	private int type;
+	@Column(name = "positionx")
+	private int positionx;
 
-	@Column(name = "propertys")
-	private String propertys;
+	@Column(name = "positiony")
+	private int positiony;
+
+	@Column(name = "color")
+	private int color;
 
 	@Column(name = "name")
 	private String name;
+
+	@Column(name = "filename")
+	private String filename;
+
+	public String getFilename() {
+		return filename;
+	}
+
+	public void setFilename(String filename) {
+		this.filename = filename;
+	}
 
 	public int getId() {
 		return id;
@@ -30,20 +44,28 @@ public class Element {
 		this.id = id;
 	}
 
-	public int getType() {
-		return type;
+	public int getPositionx() {
+		return positionx;
 	}
 
-	public void setType(int type) {
-		this.type = type;
+	public void setPositionx(int positionx) {
+		this.positionx = positionx;
 	}
 
-	public String getPropertys() {
-		return propertys;
+	public int getPositiony() {
+		return positiony;
 	}
 
-	public void setPropertys(String propertys) {
-		this.propertys = propertys;
+	public void setPositiony(int positiony) {
+		this.positiony = positiony;
+	}
+
+	public int getColor() {
+		return color;
+	}
+
+	public void setColor(int color) {
+		this.color = color;
 	}
 
 	public String getName() {
