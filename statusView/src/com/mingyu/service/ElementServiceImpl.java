@@ -21,13 +21,11 @@ public class ElementServiceImpl implements ElementService {
 	@Override
 	public void addElement(Element element) {
 		elementDao.saveElement(element);
-
 	}
 
 	@Override
 	public List<Element> getElement() {
 		return elementDao.getElement();
-
 	}
 
 	@Override
@@ -48,6 +46,5 @@ public class ElementServiceImpl implements ElementService {
 		for (int i = 1; i <= elementList.size(); i++) {
 			elementDao.saveElement(elementList.get(i));
 		}
-
 	}
 }

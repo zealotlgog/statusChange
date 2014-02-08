@@ -42,7 +42,7 @@ http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 		<property name="annotatedClasses">
 			<list>
 				<value>com.mingyu.domain.Element</value>
-				<value>com.mingyu.domain.RelationShip</value>
+				<value>com.mingyu.domain.Filename</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
