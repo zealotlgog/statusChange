@@ -54,7 +54,14 @@ public class HomeController {
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public ModelAndView listFileNames(@RequestBody List<Element> element) {
 
-		return new ModelAndView("statusView");
+		return new ModelAndView("index");
+
+	}
+	
+	@RequestMapping(value = "/index")
+	public ModelAndView index() {
+
+		return new ModelAndView("index");
 
 	}
 
